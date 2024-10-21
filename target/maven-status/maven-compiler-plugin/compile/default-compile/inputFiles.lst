@@ -1,4 +1,5 @@
 /Applications/java_projects/golvia-backend/src/main/java/com/backend/golvia/GolviaApplication.java
+/Applications/java_projects/golvia-backend/src/main/java/com/backend/golvia/usermgt/configs/CorsConfig.java
 /Applications/java_projects/golvia-backend/src/main/java/com/backend/golvia/usermgt/configs/RequestInterceptor.java
 /Applications/java_projects/golvia-backend/src/main/java/com/backend/golvia/usermgt/configs/RestTemplateConfig.java
 /Applications/java_projects/golvia-backend/src/main/java/com/backend/golvia/usermgt/configs/SwaggerConfig.java

@@ -2,6 +2,7 @@ package com.backend.golvia.usermgt.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 
@@ -16,6 +17,7 @@ import com.backend.golvia.usermgt.services.UserService;
 import com.backend.golvia.usermgt.utils.ResponseUtil;
 
 
+@CrossOrigin(origins = "*")
 @RestController
 @RequestMapping("/api/users")
 public class UserController {
