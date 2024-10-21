@@ -40,6 +40,15 @@ public class ResponseUtil {
         return new ApiResponse<>(201, "An OTP has been sent to your email ", data,null);
     }
     
+    
+    public static <T> ApiResponse<T> bad_request(String message) {
+        return new ApiResponse<>(400, message, null,null);
+    }
+    
+    public static <T> ApiResponse<T> unprocessable_request(String message) {
+    	 return new ApiResponse<>(422, message, null,null);
+    }
+    
     //
 }
 

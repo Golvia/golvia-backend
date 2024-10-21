@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 
 import com.backend.golvia.usermgt.entities.Athlete;
 import com.backend.golvia.usermgt.entities.User;
+import com.backend.golvia.usermgt.entities.User.ProfileType;
 import com.backend.golvia.usermgt.models.UserInfo;
 import com.backend.golvia.usermgt.repositories.AthleteRepository;
 import com.backend.golvia.usermgt.repositories.UserRepository;
@@ -103,11 +104,20 @@ public class UserService {
     
     
     
-    public String testing(String totoK) {
+    
+    public boolean updateProfileType(String email, ProfileType profile_type) {
     	
-    	 System.out.println("==================== I AM NOW IN THE CONTROLLER ================");
+    	User user = userRepository.findByEmail(email);
     	
-    	return "";
+    	if(user==null) {
+    		
+    		return false;
+    	}
+    	user.setProfileType(profile_type);
+    	userRepository.save(user);
+    	
+    	
+    	return true;
     	
     }
     
@@ -133,7 +143,6 @@ public class UserService {
     	
     	return token;
     }
-    
     
     
     

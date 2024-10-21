@@ -41,8 +41,12 @@ public class RequestInterceptor implements HandlerInterceptor {
           	 System.out.println(jwtUtil.extractExpiration(token));
              return true;
              
+            
+             
          }
-        return false; // Continue the request to the controller
+         
+         response.sendError(401, "Unauthorized: A valid token must be attached to the request");
+         return false; // Continue the request to the controller
     }
 
   

@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.backend.golvia.usermgt.entities.OtpDetails;
 import com.backend.golvia.usermgt.entities.User;
+import com.backend.golvia.usermgt.models.UpdateProfileTypeRequest;
 import com.backend.golvia.usermgt.models.UserInfo;
 import com.backend.golvia.usermgt.services.OtpService;
 
@@ -97,6 +98,34 @@ public class AuthController {
            
            return  ResponseEntity.status(201).body(ResponseUtil.auth_success(token_response,userInfo));
 	   }
+	    
+	    
+	    
+	    @PostMapping("/updateProfileType")
+	    public ResponseEntity<Object> updateProfileType(@RequestBody UpdateProfileTypeRequest req) {
+	    	
+	    	
+	    	if(req == null) {
+	    		
+	    		return ResponseEntity.status(400).body(ResponseUtil.bad_request("bad request"));
+	    	}
+		  
+	       boolean response = userService.updateProfileType(req.getEmail(),req.getProfileType());
+	       
+	       if(response) {
+	    	   
+	    	   return ResponseEntity.status(200).body(ResponseUtil.success(null));
+	       }else {
+	    	   
+	    	   return ResponseEntity.status(422).body(ResponseUtil.unprocessable_request("unprocessable request"));
+	    	   
+	       }
+	       
+           
+           
+	   }
+	    
+	    
 	  
 	  
 	  
